@@ -2,21 +2,33 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start; /* Align items to the top to avoid vertical centering issues */
+    min-height: 100vh;
     background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
-.calculator {
+.container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    gap: 20px;
+    align-items: stretch; /* Stretch items to take up available width */
+    max-width: auto; /* Maximum width for the container */
+    width: 100%;
+    padding: 50px; /* Add padding around the container */
+}
+
+.calculator, .result {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 100%;
     width: 100%;
 }
 
-.calculator h2 {
+.calculator h2, .result h2 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
@@ -53,8 +65,9 @@ body {
     background-color: #0056b3;
 }
 
-.calculator .result {
-    margin-top: 20px;
+.result {
+    position: sticky;
+    top: 20px;
 }
 
 .result-table {
@@ -75,18 +88,35 @@ body {
 }
 
 .highlight {
-    background-color: #ffeb3b; /* Bright yellow background for risked and reward amounts */
+    background-color: #cce5ff; /* Light blue background for Position Size, Stop-Loss Price, and Target Price */
     font-weight: bold;
     font-size: 18px;
 }
 
 .medium-highlight {
-    background-color: #cce5ff; /* Light blue background for position size */
+    background-color: #ffeb3b; /* Yellow background for Risked Amount and Reward Amount */
     font-weight: bold;
     font-size: 16px;
 }
 
 .low-highlight {
-    background-color: #e2e3e5; /* Light grey background for stop-loss and target price */
+    background-color: #e2e3e5; /* Light grey background for less important information */
     font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Align elements side by side on larger screens */
+    }
+
+    .calculator, .result {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .calculator, .result {
+        width: 100%;
+        max-width: 100%;
+    }
 }
