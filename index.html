@@ -7,26 +7,52 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calculator">
-        <h2>Position Size Calculator</h2>
-        <label for="stockPrice">Stock Price (₹):</label>
-        <input type="number" id="stockPrice" placeholder="Enter stock price" required>
+    <div class="container">
+        <div class="calculator">
+            <h2>Position Size Calculator</h2>
+            <label for="stockPrice">Stock Price (₹):</label>
+            <input type="number" id="stockPrice" placeholder="Enter stock price" required>
 
-        <label for="capital">Capital (₹):</label>
-        <input type="number" id="capital" value="50000" disabled>
+            <label for="capital">Capital (₹):</label>
+            <input type="number" id="capital" value="50000">
 
-        <label for="leverage">Leverage (x):</label>
-        <input type="number" id="leverage" value="5" disabled>
+            <label for="leverage">Leverage (x):</label>
+            <input type="number" id="leverage" value="5" disabled>
 
-        <label for="stopLossPercent">Stop-Loss (%) of Capital:</label>
-        <input type="number" id="stopLossPercent" value="2">
+            <label for="stopLossPercent">Stop-Loss (%) of Capital:</label>
+            <input type="number" id="stopLossPercent" value="2">
 
-        <label for="targetPercent">Target (%) of Stock Price:</label>
-        <input type="number" id="targetPercent" value="1"disabled >
+            <label for="targetPercent">Target (%) of Stock Price:</label>
+            <input type="number" id="targetPercent" value="1" disabled>
 
-        <button onclick="calculatePositionSize()">Calculate Position Size</button>
+            <button onclick="calculatePositionSize()">Calculate Position Size</button>
+        </div>
 
-        <div class="result" id="result"></div>
+        <div class="result">
+            <h2>Trade Summary</h2>
+            <table class="result-table">
+                <tr class="highlight">
+                    <th>Position Size</th>
+                    <td id="positionSize">-</td>
+                </tr>
+                <tr class="highlight">
+                    <th>Stop-Loss Price</th>
+                    <td id="stopLossPrice">-</td>
+                </tr>
+                <tr class="highlight">
+                    <th>Target Price</th>
+                    <td id="targetPrice">-</td>
+                </tr>
+                <tr class="medium-highlight">
+                    <th>Risked Amount</th>
+                    <td id="riskedAmount">-</td>
+                </tr>
+                <tr class="medium-highlight">
+                    <th>Reward Amount</th>
+                    <td id="rewardAmount">-</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
