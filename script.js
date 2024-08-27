@@ -28,30 +28,10 @@ function calculatePositionSize() {
     // Calculate reward amount per trade
     const rewardAmount = positionSize * (targetPrice - stockPrice);
 
-    // Display results in a table
-    document.getElementById('result').innerHTML = `
-        <table class="result-table">
-            <tr class="highlight">
-                <th>Risked Amount</th>
-                <td>₹${riskedAmount.toFixed(2)}</td>
-            </tr>
-            <tr class="highlight">
-                <th>Reward Amount</th>
-                <td>₹${rewardAmount.toFixed(2)}</td>
-            </tr>
-            <tr class="medium-highlight">
-                <th>Position Size</th>
-                <td>${positionSize.toFixed(2)} shares</td>
-            </tr>
-            <tr class="low-highlight">
-                <th>Stop-Loss Price</th>
-                <td>₹${stopLossPrice.toFixed(2)}</td>
-            </tr>
-            <tr class="low-highlight">
-                <th>Target Price</th>
-                <td>₹${targetPrice.toFixed(2)}</td>
-            </tr>
-        </table>
-    `;
+    // Update the table with the calculated values
+    document.getElementById('positionSize').textContent = `${positionSize.toFixed(2)} shares`;
+    document.getElementById('stopLossPrice').textContent = `₹${stopLossPrice.toFixed(2)}`;
+    document.getElementById('targetPrice').textContent = `₹${targetPrice.toFixed(2)}`;
+    document.getElementById('riskedAmount').textContent = `₹${riskedAmount.toFixed(2)}`;
+    document.getElementById('rewardAmount').textContent = `₹${rewardAmount.toFixed(2)}`;
 }
-
