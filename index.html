@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Size Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <h2>Position Size Calculator</h2>
+        <label for="stockPrice">Stock Price (₹):</label>
+        <input type="number" id="stockPrice" placeholder="Enter stock price" required>
+
+        <label for="capital">Capital (₹):</label>
+        <input type="number" id="capital" value="50000" disabled>
+
+        <label for="leverage">Leverage (x):</label>
+        <input type="number" id="leverage" value="5" disabled>
+
+        <label for="stopLossPercent">Stop-Loss (%) of Capital:</label>
+        <input type="number" id="stopLossPercent" value="2">
+
+        <label for="targetPercent">Target (%) of Stock Price:</label>
+        <input type="number" id="targetPercent" value="1"disabled >
+
+        <button onclick="calculatePositionSize()">Calculate Position Size</button>
+
+        <div class="result" id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
